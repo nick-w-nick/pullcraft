@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import PullCraft from '../index.js'; // Adjust the path to where your PullCraft class is located
+// import PullCraft from '../index.js'; // Adjust the path to where your PullCraft class is located
 import dotenv from 'dotenv';
 
 import { Command } from 'commander';
@@ -60,8 +60,8 @@ const nested = {
   }
 };
 
-const pullCraft = new PullCraft(nested);
-pullCraft.createPr(baseBranch, compareBranch).catch((error: any) => {
-  console.error(`Error creating PR: ${error.message}`);
-  process.exit(1);
-});
+// const pullCraft = new PullCraft(nested);
+// pullCraft.createPr(baseBranch, compareBranch).catch((error: any) => {
+//   console.error(`Error creating PR: ${error.message}`);
+//   process.exit(1);
+// });

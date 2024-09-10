@@ -21,10 +21,25 @@
     "coverage2": "nyc npm test",
     "release": "release-it --dry-run --ci --config .release-it.js",
     "coverage": "c8 --check-coverage --lines 90 --functions 90 --branches 80 npm run test",
-    "postinstall": "npx shx cp -n .githooks/* .git/hooks/"
+    "postinstall": "npx shx cp -n .githooks/* .git/hooks/",
+    "package": "nexe dist/bin/pullcraft.js -o build/pullcraft"
   },
   "bin": {
     "pullcraft": "./dist/bin/pullcraft.js"
+  },
+  "pkg": {
+    "scripts": "dist/**/*.js",
+    "assets": [
+      "dist/**/*",
+      "!dist/**/*.ts",
+      "!dist/test/**/*"
+    ],
+    "targets": [
+      "node20-macos-x64",
+      "node20-linux-x64",
+      "node20-win-x64"
+    ],
+    "outputPath": "build"
   },
   "devDependencies": {
     "@babel/register": "^7.24.6",
@@ -50,7 +65,9 @@
     "esm": "^3.2.25",
     "globals": "^15.9.0",
     "mocha": "^10.7.3",
+    "nexe": "^4.0.0-rc.6",
     "nock": "^13.5.5",
+    "pkg": "^5.8.1",
     "prettier": "^3.3.3",
     "proxyquire": "^2.1.3",
     "release-it": "^17.6.0",
